@@ -1,0 +1,27 @@
+/* src/components/Chip.module.css */
+
+.chip {
+  background: #f4f4f4;
+  border-radius: 8px;
+  padding: 6px 12px;
+ 
+  font-size: 12px;
+  font-weight: 500;
+  /* flex-shrink: 0; */
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.chipText {
+  margin-right: 8px;
+}
+
+.chipRemoveButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  padding: 0;
+}

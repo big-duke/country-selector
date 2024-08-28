@@ -1,0 +1,43 @@
+.checkboxContainer {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.checkboxInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  z-index: 2;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #c1c1c1;
+  border-radius: 6px;
+  transition: background-color 0.2s, border-color 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkboxInput:checked + .checkbox {
+  border-color: #0049d9;
+  background-color: #005ffd;
+  background-image: url('../../../../assets/icons/checkmark.svg');
+  background-position: center;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+}
+
+.checkboxLabel {
+  margin-left: 8px;
+  font-size: 16px;
+  color: #333;
+}

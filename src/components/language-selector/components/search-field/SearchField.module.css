@@ -1,0 +1,35 @@
+.searchFieldContainer {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 10px;  
+  padding: 0 12px;  
+  background: #f4f4f4;
+  position: relative; 
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+  fill: #c1c1c1;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  line-height: 20px;
+  color: #333;
+  padding: 8px 12px;
+  background: #f4f4f4;
+}
+
+.clearIcon {
+  width: 20px;
+  height: 20px;
+  fill: #c1c1c1; /* Цвет иконки */
+  cursor: pointer; /* Курсор в виде указателя при наведении */
+  position: absolute;
+  right: 12px;
+}
