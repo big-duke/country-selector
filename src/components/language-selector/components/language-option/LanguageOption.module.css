@@ -3,11 +3,20 @@
   align-items: center; 
   height: 52px;
   gap:8px;
- 
+  cursor: pointer;
+  margin-left: -16px;  
+  margin-right: -16px;  
+  padding-left: 16px;  
+  padding-right: 16px;  
 }
 
 .languageOptionContainer div:last-child {
   margin-left: auto;
+}
+
+.languageOptionContainer:hover {
+  background-color:  #f4f4f4;
+ 
 }
 
 .flagWrapper {

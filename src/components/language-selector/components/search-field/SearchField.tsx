@@ -3,16 +3,17 @@ import React, { useState } from 'react';
 import styles from './SearchField.module.css';
 import { ReactComponent as SearchIcon } from '../../../../assets/icons/search.svg'; // Иконка лупы
 import { ReactComponent as ClearIcon } from '../../../../assets/icons/clear.svg'; // Иконка крестика
+import { useLanguageContext } from '../../LanguageContext';
 
 const SearchField: React.FC = () => {
-  const [query, setQuery] = useState('');
+  const {term, setTerm} = useLanguageContext();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
+    setTerm(event.target.value);
   };
 
   const handleClear = () => {
-    setQuery('');
+    setTerm('');
   };
 
   return (
@@ -20,14 +21,12 @@ const SearchField: React.FC = () => {
       <SearchIcon className={styles.searchIcon} />
       <input
         type="text"
-        value={query}
+        value={term}
         onChange={handleChange}
         placeholder="Поиск"
         className={styles.searchInput}
       />
-      {query && (
-        <ClearIcon onClick={handleClear} className={styles.clearIcon} />
-      )}
+      {term && <ClearIcon onClick={handleClear} className={styles.clearIcon} />}
     </div>
   );
 };

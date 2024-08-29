@@ -6,7 +6,7 @@ import SearchField from '../search-field/SearchField';
 import { useLanguageContext } from '../../LanguageContext';
 
 export const LanguageDropDown: React.FC = () => {
-  const { isDropdownOpen } = useLanguageContext();
+  const { isDropdownOpen , hasSearch} = useLanguageContext();
 
   return (
     <div
@@ -14,7 +14,7 @@ export const LanguageDropDown: React.FC = () => {
         isDropdownOpen ? styles.open : ''
       }`}
     >
-      <SearchField />
+     { hasSearch && <SearchField />}
       <LanguageList />
     </div>
   );

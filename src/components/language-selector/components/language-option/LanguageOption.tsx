@@ -7,20 +7,25 @@ type LanguageOptionProps = {
   language: Language;
 };
 export const LanguageOption: React.FC<LanguageOptionProps> = ({ language }) => {
-  const { selectedLanguages, toggleLanguage } = useLanguageContext();
+  const { selectedLanguages, toggleLanguage, showCountryIcons, multiselect } =
+    useLanguageContext();
   const isLanguageSelected = selectedLanguages.some(
     (el) => el.name === language.name
   );
   const handleToggle = () => toggleLanguage(language);
   return (
-    <div className={styles.languageOptionContainer}>
-      <div className={styles.flagWrapper}>
-        <language.flag />
-      </div>
+    <div className={styles.languageOptionContainer} onClick={handleToggle}>
+      {showCountryIcons && (
+        <div className={styles.flagWrapper}>
+          <language.flag />
+        </div>
+      )}
       <span className={styles.languageName}>{language.name}</span>
-      <div>
-        <Checkbox checked={isLanguageSelected} onChange={handleToggle} />
-      </div>
+      {multiselect && (
+        <div>
+          <Checkbox checked={isLanguageSelected} />
+        </div>
+      )}
     </div>
   );
 };

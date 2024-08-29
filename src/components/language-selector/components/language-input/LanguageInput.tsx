@@ -4,24 +4,31 @@ import { useLanguageContext } from '../../LanguageContext';
 import { Chip } from '../chip/Chip';
 
 export const LanguageInput: React.FC = () => {
-  const { isDropdownOpen, toggleDropdown, selectedLanguages, removeLanguage } =
-    useLanguageContext();
+  const {
+    isDropdownOpen,
+    toggleDropdown,
+    selectedLanguages,
+    removeLanguage,
+    multiselect,
+  } = useLanguageContext();
   const placeholder = selectedLanguages.length ? '' : 'Выберите язык';
-
+  const singleLanguage = multiselect ? undefined : selectedLanguages[0]?.name
   return (
     <div className={styles.dropdownInputContainer}>
-      {selectedLanguages.map((language) => (
-        <Chip
-          key={language.name}
-          language={language.name}
-          onRemove={() => removeLanguage(language)}
-        />
-      ))}
+      {multiselect &&
+        selectedLanguages.map((language) => (
+          <Chip
+            key={language.name}
+            language={language.name}
+            onRemove={() => removeLanguage(language)}
+          />
+        ))}
       <input
         type="text"
         className={styles.dropdownInput}
         placeholder={placeholder}
         readOnly
+        value={singleLanguage}
       />
       <DropdownIcon
         className={`${styles.dropdownIcon} ${
